@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block header %}
+  <h1>{% block title %}Meter Usage{% endblock %}</h1>
+{% endblock %}
+{% block content %}
+  <p id="meter_usage_status">Loading...</p>
+  <p id="meter_usage_table"></p>
+  <script>
+    meter_usage("get_meter_usage");
+  </script>
+{% endblock %}

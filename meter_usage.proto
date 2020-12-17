@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_package = "ex.grpc";
+option objc_class_prefix = "MU";
+
+import "google/protobuf/timestamp.proto";
+
+package meter_usage;
+
+
+// The meter usage service definition.
+service MeterUsage {
+  // Sends multiple meter usage data points.
+  rpc ListMeterUsage(MeterUsageRequest) returns (stream DataPoint) {}
+}
+
+// The request message.
+message MeterUsageRequest {
+  // Currently takes no parameters. Just return all the data.
+}
+
+// A response message containing a meter reading
+// and the time at which it was taken.
+message DataPoint {
+  google.protobuf.Timestamp time = 1;
+  float meterusage = 2;
+}
